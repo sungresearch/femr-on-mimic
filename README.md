@@ -1,16 +1,17 @@
-# FEMR on SK OMOP
+# FEMR on MIMIC OMOP
 
-Running [Foundation models for Electronic Medical Records (FEMR)](https://github.com/som-shahlab/femr) on SickKids (SK) OMOP CDM.
+Running [Foundation models for Electronic Medical Records (FEMR)](https://github.com/som-shahlab/femr) on MIMIC OMOP CDM.
 
 This codebase contains scripts to:
 1. compute count-based features and train logistic regression models
-2. pretrain [CLMBR](https://www.sciencedirect.com/science/article/pii/S1532046420302653) foundation model on SK data
+2. pretrain [CLMBR](https://www.sciencedirect.com/science/article/pii/S1532046420302653) foundation model on MIMIC data
 3. conduct fine-tuning and linear-probing using CLMBR features
 4. adaption of CLMBR pretrained on de-identified [Stanford Electronic Health Records in OMOP (STARR OMOP)](https://med.stanford.edu/starr-omop.html)
 
 #### Evaluation settings:
-- Comparison across models and adaptation strategies
-- Few-shot training
+- Benchmark GBM and CLMBR models
+- Few-shots settings
+- Pretrained CLMBR models on subsamples
 
 ## Installation
 
@@ -21,12 +22,12 @@ conda create -p /path/to/env python=3.10 jupyterlab -c conda-forge -y
 
 #### Clone repository
 ```
-git clone https://github.com/sungresearch/femr-on-sk.git
+git clone https://github.com/sungresearch/femr-on-mimic.git
 ```
 
 #### Install package
 ```
-cd femr-on-sk
+cd femr-on-mimic
 pip install -e .
 ```
 
@@ -39,7 +40,7 @@ pip install "femr_cuda[models]"
 
 #### Post installation
 
-Check `femr-on-sk/src/default_paths.py` for correct default root paths to the project directory and the FEMR patient database (extract).
+Check `femr-on-mimic/src/default_paths.py` for correct default root paths to the project directory and the FEMR patient database (extract).
 
 ## Precommit checks
 
