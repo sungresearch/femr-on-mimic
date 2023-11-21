@@ -21,6 +21,7 @@ def collect_results(
     path_results: str,
     few_shots_experiment: bool = False,
     subsample_experiment: bool = False,
+    subsample_experiment_new: bool = False,
     flip_comparison: bool = False,
 ) -> pd.DataFrame:
     """
@@ -71,7 +72,7 @@ def collect_results(
 
             pvalue = p.query("metric==@metric")["p-value"].values[0]
 
-            if subsample_experiment or few_shots_experiment:
+            if subsample_experiment or subsample_experiment_new or few_shots_experiment:
                 m1_name = "_".join(m1.split("_")[:-1])
                 m2_name = "_".join(m2.split("_")[:-1])
                 sample_size = m1.split("_")[-1]
@@ -100,7 +101,7 @@ def collect_results(
                 }
             )
 
-            if subsample_experiment:
+            if subsample_experiment or subsample_experiment_new:
                 tmp = tmp.assign(**{"Pretraining Subsample": sample_size})
 
             if few_shots_experiment:
@@ -143,6 +144,15 @@ if __name__ == "__main__":
         df = collect_results(path_results, subsample_experiment=True)
         df.to_csv(
             os.path.join(PATH_OUTPUT_DIR, "adapter_models_subsample.csv"), index=False
+        )
+
+        path_results = os.path.join(
+            path_root, "data/stats/adapter_models_subsample_new"
+        )
+        df = collect_results(path_results, subsample_experiment_new=True)
+        df.to_csv(
+            os.path.join(PATH_OUTPUT_DIR, "adapter_models_subsample_new.csv"),
+            index=False,
         )
 
     if adapter_models_few_shots:
