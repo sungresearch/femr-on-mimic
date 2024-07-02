@@ -658,7 +658,14 @@ if __name__ == "__main__":
 
         # main table
         path_to_csv = os.path.join(path_results, "adapter_models/results.csv")
-        models = ["GBM", "CLMBR", "CLMBR_DAPT"]
+        models = [
+            "GBM",
+            "CLMBR_SK",
+            "CLMBR_SK_DAPT",
+            "CLMBR",
+            "CLMBR_DAPT",
+            "CLMBR_MIMIC",
+        ]
 
         for metric in ["AUROC", "AUPRC", "AUPRC_C", "ECE"]:
             df = make_table_adapter_models(
