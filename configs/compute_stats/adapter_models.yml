@@ -13,5 +13,23 @@ comparisons:
   -
     - clmbr_mimic
     - clmbr_stanford_cp
+  -
+    - count_mimic
+    - clmbr_sk
+  -
+    - count_mimic
+    - clmbr_sk_cp
+  -
+    - clmbr_mimic
+    - clmbr_sk
+  -
+    - clmbr_mimic
+    - clmbr_sk_cp
+  -
+    - clmbr_sk
+    - clmbr_stanford
+  -
+    - clmbr_sk_cp
+    - clmbr_stanford_cp
 
 overwrite: True
