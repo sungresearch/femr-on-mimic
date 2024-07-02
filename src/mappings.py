@@ -3,6 +3,8 @@ model_names = {
     "clmbr_stanford": "CLMBR",
     "clmbr_stanford_cp": "CLMBR_DAPT",
     "clmbr_mimic": "CLMBR_MIMIC",
+    "clmbr_sk": "CLMBR_SK",
+    "clmbr_sk_cp": "CLMBR_SK_DAPT",
 }
 
 task_names = {
